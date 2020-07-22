@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .nameLable {
+            display: none;
+            text-shadow: 1px 1px 3px beige;
+            font-size: 80px;
+            position: absolute;
+            top: 4.4em;
+            left: 6em;
+            font-family: Segoe Print;
+            transform: rotate(5deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <img src="center.jpg" class="center" />
+        <span class="nameLable"></span>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+            $('head title').text('Welcome to Birthday Wisher...');
+            var name = window.prompt("Please First Enter Your Name: ");
+            if (name != null && name != "exit" && name != "Exit") {
+                $('head title').text('Welcome ' + name);
+                var windowWidth = $(window).width();
+                var windowHeight = $(window).height();
+                $('.container .center').css({
+                    "width": windowWidth,
+                    "height": windowHeight
+                });
+                $('.nameLable').text(name);
+                $('.nameLable').show(1000);
+            } else if (name == "exit" || name == "Exit") {
+                window.close();
+            } else {
+                $('.container .center').hide();
+                $('.nameLable').hide();
+                alert("Enter the Name to Continue or Enter Exit/exit to Leave this....");
+                location.reload();
+            }
+        });
+    </script>
+</body>
+
+</html>
